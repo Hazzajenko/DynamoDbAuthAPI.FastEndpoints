@@ -1,4 +1,4 @@
-﻿namespace DynamoDbAuthAPI.Errors;
+﻿namespace DynamoDbAuthAPI.Contracts.Logs;
 
 public class ErrorLog
 {

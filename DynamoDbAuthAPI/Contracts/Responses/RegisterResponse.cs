@@ -1,6 +1,6 @@
-﻿namespace DynamoDbAuthAPI.Models;
+﻿namespace DynamoDbAuthAPI.Contracts.Responses;
 
-public class RegisterResponseModel
+public class RegisterResponse
 {
     public bool IsSuccess = false;
     public string? Log { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace DynamoDbAuthAPI.Logs;
+﻿namespace DynamoDbAuthAPI.Contracts.Logs;
 
 public class SuccessLog
 {

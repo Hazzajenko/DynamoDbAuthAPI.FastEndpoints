@@ -1,6 +1,14 @@
-﻿namespace DynamoDbAuthAPI.Extensions;
+﻿using DynamoDbAuthAPI.Services;
 
-public class SettingsExtensions
+namespace DynamoDbAuthAPI.Extensions;
+
+public static class SettingsExtensions
 {
-    
+    public static IServiceCollection AddSettingsExtensions(this IServiceCollection services, IConfiguration config)
+    {
+        services.Configure<DatabaseSettings>(config.GetSection(DatabaseSettings.KeyName));
+        services.Configure<TokenSettings>(config.GetSection(TokenSettings.KeyName));
+
+        return services;
+    }
 }

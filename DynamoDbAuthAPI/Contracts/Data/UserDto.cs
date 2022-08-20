@@ -1,9 +1,9 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
 
-namespace DynamoDbAuthAPI.Models;
+namespace DynamoDbAuthAPI.Contracts.Data;
 
 [DynamoDBTable("users")]
-public class UserDtoModel
+public class UserDto
 {
     [DynamoDBProperty("emailAddress")]
     public string? EmailAddress { get; set; }

@@ -1,6 +1,6 @@
-﻿namespace DynamoDbAuthAPI.Models;
+﻿namespace DynamoDbAuthAPI.Contracts.Requests;
 
-public class UserModel
+public class UserRequest
 {
     public string? EmailAddress { get; set; }
 

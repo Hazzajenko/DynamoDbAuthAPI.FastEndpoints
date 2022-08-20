@@ -1,8 +1,10 @@
-using DynamoDbAuthAPI.Models;
+using DynamoDbAuthAPI.Contracts.Requests;
+using DynamoDbAuthAPI.Contracts.Responses;
 
 namespace DynamoDbAuthAPI.Services;
 
 public interface ITokenService
 {
-    string CreateToken(UserModel user);
+    LoginResponse ToLoginResponse(UserRequest request);
+    string CreateToken(UserRequest user);
 }

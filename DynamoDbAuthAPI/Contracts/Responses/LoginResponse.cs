@@ -1,9 +1,7 @@
-﻿namespace DynamoDbAuthAPI.Models;
+﻿namespace DynamoDbAuthAPI.Contracts.Responses;
 
-public class LoginResponseModel
+public class LoginResponse
 {
     public string? EmailAddress { get; set; }
     public string? Token { get; set; }
-    public bool IsSuccess = false;
-    public string? Log { get; set; }
 }
