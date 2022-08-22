@@ -17,51 +17,23 @@ namespace DynamoDbAuthAPI.Repositories;
 
 public class AuthRepository : IAuthRepository
 {
-   // public IDynamoDBContext DynamoDbContext { get; }
-  //  private readonly IAmazonDynamoDB _dynamoDb;
-  private readonly IDynamoDBContext _dynamoDbContext;
-
+    private readonly IDynamoDBContext _dynamoDbContext;
   private readonly IOptions<DatabaseSettings> _databaseSettings;
-
   private readonly ITokenService _tokenService;
-  //    private readonly DynamoDBContext _dynamoDbContext;
 
-    public AuthRepository(IDynamoDBContext dynamoDbContext,
+  public AuthRepository(IDynamoDBContext dynamoDbContext,
         IOptions<DatabaseSettings> databaseSettings,
         ITokenService tokenService)
     {
-        //DynamoDbContext = dynamoDbContext;
-       // _dynamoDbContext = new DynamoDBContext(new AmazonDynamoDBClient());
-       // _dynamoDb = dynamoDb;
-       _dynamoDbContext = dynamoDbContext;
+        _dynamoDbContext = dynamoDbContext;
        _databaseSettings = databaseSettings;
        _tokenService = tokenService;
     }
     
-    /*public async Task<bool> LoginAsync(UserRequest user)
-    {
-        
-    }*/
     
-    public async Task<bool> RegisterAsync(UserRequest user)
+    public async Task<bool> RegisterAsync(UserDto user)
     {
-        using var hmac = new HMACSHA512();
-
-        var createUserDto = new UserDto
-        {
-            EmailAddress = user.EmailAddress!.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.Password!)),
-            PasswordSalt = hmac.Key
-        };
-        
-        try
-        {
-            await _dynamoDbContext.SaveAsync(createUserDto);
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        await _dynamoDbContext.SaveAsync(user);
+        return true;
     }
 }

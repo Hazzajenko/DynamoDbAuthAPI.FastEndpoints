@@ -2,6 +2,5 @@
 
 public class RegisterResponse
 {
-    public bool IsSuccess = false;
-    public string? Log { get; set; }
+    public string EmailAddress { get; set; } = default!;
 }

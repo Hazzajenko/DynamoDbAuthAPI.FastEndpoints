@@ -1,8 +1,11 @@
-﻿namespace DynamoDbAuthAPI.Contracts.Requests;
+﻿using System.ComponentModel;
+
+namespace DynamoDbAuthAPI.Contracts.Requests;
 
 public class UserRequest
 {
-    public string? EmailAddress { get; set; }
+    [DefaultValue("string@mail.com")]
+    public string EmailAddress { get; set; } = default!;
 
-    public string? Password { get; set; }
+    public string Password { get; set; } = default!;
 }

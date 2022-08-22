@@ -2,6 +2,6 @@
 
 public class LoginResponse
 {
-    public string? EmailAddress { get; set; }
-    public string? Token { get; set; }
+    public string EmailAddress { get; set; } = default!;
+    public string Token { get; set; } = default!;
 }

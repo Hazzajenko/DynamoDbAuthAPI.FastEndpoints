@@ -6,9 +6,9 @@ namespace DynamoDbAuthAPI.Contracts.Data;
 public class UserDto
 {
     [DynamoDBProperty("emailAddress")]
-    public string? EmailAddress { get; set; }
+    public string EmailAddress { get; set; } = default!;
     [DynamoDBProperty("passwordHash")]
-    public byte[]? PasswordHash { get; set; }
+    public byte[] PasswordHash { get; set; } = default!;
     [DynamoDBProperty("passwordSalt")]
-    public byte[]? PasswordSalt { get; set; }
+    public byte[] PasswordSalt { get; set; } = default!;
 }
